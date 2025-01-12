@@ -28,6 +28,11 @@ public class MessageService {
         return messageRepository.findAll();
     }
 
+    public List<Message> getAllMessagesById(String accountId) {
+        int id = Integer.parseInt(accountId);
+        return messageRepository.findAllByPostedBy(id);
+    }
+
     public Message getMessageById(String messageId) {
         int id = Integer.parseInt(messageId);
         return messageRepository.findByMessageId(id).orElse(null);
